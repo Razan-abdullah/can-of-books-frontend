@@ -15,7 +15,7 @@ constructor(props){
 
   componentDidMount = () => {
     axios
-    .get(` https://book-system1.herokuapp.com//getbooks`)
+    .get(`https://book-system1.herokuapp.com/getbooks`)
     .then(result =>{
       console.log(result.data);
       this.setState({
