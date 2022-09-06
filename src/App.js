@@ -3,11 +3,6 @@ import axios from 'axios';
 import BestBooks from './BestBooks';
 import Footer from './Footer.js';
 import Header from './Header.js';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
 
 class App extends React.Component {
 constructor(props){
@@ -31,6 +26,7 @@ constructor(props){
     })
     
   }
+   onChange(newBooks) {   this.setState({ bookArr: newBooks });}
 
   render(){
     return(
@@ -39,7 +35,7 @@ constructor(props){
       <div>
       <Header/>
        
-          <BestBooks books={this.state.bookArr}/>
+          <BestBooks books={this.state.bookArr} onbooksChange={this.onChange}/>
          
          
 

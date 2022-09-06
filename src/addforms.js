@@ -11,30 +11,30 @@ class UpdateModal extends React.Component {
     return (
         <Modal show={this.props.show} onHide={this.props.handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Update Your Selection!</Modal.Title>
+          <Modal.Title>Add New Book!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={this.props.Updatebook}>
+          <Form onSubmit={this.props.addBook}>
             <Form.Group className="mb-3">
               <Form.Label>Book Title</Form.Label>
               <Form.Control
                 type="text"
                 name="title"
                 placeholder="Enter a book name"
-                defaultValue={this.props.currentbooks.title} />
+                required />
             </Form.Group>
-
             <Form.Group className="mb-3">
               <Form.Label>Book Description</Form.Label>
               <Form.Control
                 type="text"
                 name="description"
                 placeholder="Enter a description"
-                defaultValue={this.props.currentbooks.des}              />
+                required
+                />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Status</Form.Label>
-              <Form.Select id="status"  name="status"defaultValue={this.props.currentbooks.status}> 
+              <Form.Select id="status" name ="status" required> 
               <option>Choose a Status</option>
                 <option value="Life Changing">Life Changing</option>
                 <option value="Favorite Five">Favorite Five</option>
@@ -42,7 +42,7 @@ class UpdateModal extends React.Component {
               </Form.Select>
             </Form.Group>
             <Button onClick={this.props.handleClose} variant="primary" type="submit">
-              Update Book Now!
+             Add Book Now!
             </Button>
           </Form>
         </Modal.Body>
