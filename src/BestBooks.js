@@ -22,7 +22,7 @@ class BestBooks extends React.Component {
 
    deletebook = (id) => {
     axios
-    .delete(`http://localhost:3100/deletebook/${id}`) //http://localhost:3010/deleteCat?id=${id}
+    .delete(` https://book-system1.herokuapp.com//deletebook/${id}`) //http://localhost:3010/deleteCat?id=${id}
     .then(result =>{
       this.props.onbooksChange(result)
       // this.props.books= result.data
@@ -72,7 +72,7 @@ class BestBooks extends React.Component {
 
     const id = this.state.currentbook._id;
 axios 
-.put(`http://localhost:3100/update/${id}`,obj)
+.put(` https://book-system1.herokuapp.com//update/${id}`,obj)
 .then(result=>{
 
   this.props.onbooksChange(result)
@@ -93,7 +93,7 @@ let obj={
 }
 
 axios
-    .post(`http://localhost:3100/ad123`, obj)
+    .post(` https://book-system1.herokuapp.com//ad123`, obj)
     .then(result =>{
       
         this.props.onbooksChange(result.data)
