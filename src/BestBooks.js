@@ -1,40 +1,54 @@
-import Carousel from 'react-bootstrap/Carousel';
+import React from "react";
+import axios from "axios";
+import Carousel from "react-bootstrap/Carousel";
 
-class car extends React.Component {
+class BestBooks extends React.Component {
+  
 
+  /* TODO: Make a GET request to your API to fetch all the books from the database  */
+  
+  
 
+  
+    
 
-
-
- 
   render() {
     return (
-<div>
-        
-<body>
-  <section aria-label="Newest Photos">
-    <div class="carousel" data-carousel>
-      <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
-      <button class="carousel-button next" data-carousel-button="next">&#8658;</button>
-      <ul data-slides>
-        <li class="slide" data-active>
-          <img src="https://source.unsplash.com/78A265wPiO4" alt="Nature Image #1">
-        </li>
-        <li class="slide">
-          <img src="https://source.unsplash.com/eOpewngf68w" alt="Nature Image #2">
-        </li>
-        <li class="slide">
-          <img src="https://source.unsplash.com/ndN00KmbJ1c" alt="Nature Image #3">
-        </li>
-      </ul>
-    </div>
-  </section>
-</body>
+      <>
+      
+        <div id="d1">
+          {this.props.books.length ? (
+            <div id="secondaryDiv" style={{ width: "400px" }}>
+              <Carousel fade>
+                {this.props.books.map((item) => {
+                  return (
+                    <Carousel.Item>
+                      <img
+                        className="d-block w-100"
+                        src={require("./1.jpg")}
+                        alt="Slide"
+                      />
+                      <Carousel.Caption>
+                        <h3>{item.title}</h3>
+                        <p>{item.des}</p>
+                        <p>{item.status}</p>
+                      
+                      </Carousel.Caption>
+                    </Carousel.Item>
+                  );
+                })}
+              </Carousel>
+               
+            </div>
+          ) : (
+            <h3>No Books Found :(</h3>
+          )}
 
+        </div>
+      
+               </>
+    );
+  }
+}
 
-</div>
-
-    )
-  }}
-
-export default car;
+export default BestBooks;

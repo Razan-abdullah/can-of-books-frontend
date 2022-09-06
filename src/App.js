@@ -1,5 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+import BestBooks from './BestBooks';
+import Footer from './Footer.js';
+import Header from './Header.js';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
 class App extends React.Component {
 constructor(props){
@@ -26,19 +34,18 @@ constructor(props){
 
   render(){
     return(
-      <div>
-        <h1>Book  System</h1>
-        {this.state.bookArr.map(item =>{
-          return(
-            <div>
-              <h3> title : {item.title} </h3>
-              <p>description  : {item.des}</p>
-              <p>status  : {item.status}</p>
+    
 
-            </div>
-          )
-        })}
-      </div>
+      <div>
+      <Header/>
+       
+          <BestBooks books={this.state.bookArr}/>
+         
+         
+
+        <Footer />
+     
+    </div>
     )
   }
 }
