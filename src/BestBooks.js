@@ -1,31 +1,40 @@
-import React from 'react';
+import Carousel from 'react-bootstrap/Carousel';
 
-class BestBooks extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      books: []
-    }
-  }
+class car extends React.Component {
 
-  /* TODO: Make a GET request to your API to fetch all the books from the database  */
 
+
+
+
+ 
   render() {
-
-    /* TODO: render all the books in a Carousel */
-
     return (
-      <>
-        <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
+<div>
+        
+<body>
+  <section aria-label="Newest Photos">
+    <div class="carousel" data-carousel>
+      <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
+      <button class="carousel-button next" data-carousel-button="next">&#8658;</button>
+      <ul data-slides>
+        <li class="slide" data-active>
+          <img src="https://source.unsplash.com/78A265wPiO4" alt="Nature Image #1">
+        </li>
+        <li class="slide">
+          <img src="https://source.unsplash.com/eOpewngf68w" alt="Nature Image #2">
+        </li>
+        <li class="slide">
+          <img src="https://source.unsplash.com/ndN00KmbJ1c" alt="Nature Image #3">
+        </li>
+      </ul>
+    </div>
+  </section>
+</body>
 
-        {this.state.books.length ? (
-          <p>Book Carousel coming soon</p>
-        ) : (
-          <h3>No Books Found :(</h3>
-        )}
-      </>
+
+</div>
+
     )
-  }
-}
+  }}
 
-export default BestBooks;
+export default car;
