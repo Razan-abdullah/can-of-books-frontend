@@ -113,7 +113,7 @@ axios
 
      <div id="d1">
           {this.props.books.length ? (
-            <div id="secondaryDiv" style={{ width: "935px" }}>
+            <div id="secondaryDiv" >
               <Carousel fade>
                 {this.props.books.map((item) => {
                   return (
