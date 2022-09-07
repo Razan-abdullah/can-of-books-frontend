@@ -18,19 +18,6 @@ class App extends React.Component {
 //     .get(`https://book-system1.herokuapp.com/getbooks`)
 //     // .get(`http://localhost:3100/getbooks`)
 
-//     .then(result =>{
-//       console.log(result.data);
-//       this.setState({
-//         bookArr : result.data
-//       })
-//     })
-//     .catch(err=>{
-//       console.log(err);
-//     })
-    
-//   }
-//    onChange(newBooks) {   this.setState({ bookArr: newBooks })}
-
   render(){
     return(
     
