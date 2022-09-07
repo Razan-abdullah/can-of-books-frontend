@@ -3,6 +3,7 @@ import axios from "axios";
 import Carousel from "react-bootstrap/Carousel";
 import UpdatForm from './form.js';
 import AddForm from './addforms.js';
+import { withAuth0 } from '@auth0/auth0-react';
 
 class BestBooks extends React.Component {
   
