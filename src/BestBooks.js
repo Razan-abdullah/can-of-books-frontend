@@ -14,10 +14,27 @@ class BestBooks extends React.Component {
     this.state = {
       showAddForm:false,
       showFlag : false,
-      currentbook : {}
+      currentbook : {},
+      books : []
     }
   }
   
+    componentDidMount = () => {
+      axios
+      .get(`https://book-system1.herokuapp.com/getbooks`)
+      // .get(`http://localhost:3100/getbooks`)
+  
+      .then(result =>{
+        console.log(result.data);
+        this.setState({
+          books : result.data
+        })
+      })
+      .catch(err=>{
+        console.log(err);
+      })
+      
+    }
   
 
    deletebook = (id) => {
@@ -25,8 +42,10 @@ class BestBooks extends React.Component {
     .delete(`https://book-system1.herokuapp.com/deletebook/${id}`) //http://localhost:3010/deleteCat?id=${id}
     // .delete(`http://localhost:3100/deletebook/${id}`)
     .then(result =>{
-      this.props.onbooksChange(result.data)
-      // this.props.books= result.data
+      this.setState({
+        books : result.data
+      })
+    
       })
     
     .catch(err=>{
@@ -77,8 +96,10 @@ axios
 // .put(`http://localhost:3100/update/${id}`,obj)
 
 .then(result=>{
-
-  this.props.onbooksChange(result)
+  return this.setState({
+    books: result.data,
+  });
+  // this.props.onbooksChange(result)
 })
 .catch(err=>{
   console.log(err);
@@ -101,7 +122,10 @@ axios
 
     .then(result =>{
       
-        this.props.onbooksChange(result.data)
+        // this.props.onbooksChange(result.data)
+        return this.setState({
+          books: result.data,
+        });
       
     })
     .catch(err=>{
@@ -117,10 +141,10 @@ axios
 
 
      <div id="d1">
-          {this.props.books.length ? (
+          {this.state.books.length ? (
             <div id="secondaryDiv" >
               <Carousel fade>
-                {this.props.books.map((item) => {
+                {this.state.books.map((item) => {
                   return (
                     <Carousel.Item>
                       <img
