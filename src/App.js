@@ -16,6 +16,8 @@ constructor(props){
   componentDidMount = () => {
     axios
     .get(`https://book-system1.herokuapp.com/getbooks`)
+    // .get(`http://localhost:3100/getbooks`)
+
     .then(result =>{
       console.log(result.data);
       this.setState({
@@ -27,7 +29,7 @@ constructor(props){
     })
     
   }
-   onChange(newBooks) {   this.setState({ bookArr: newBooks });}
+   onChange(newBooks) {   this.setState({ bookArr: newBooks })}
 
   render(){
     return(
@@ -35,8 +37,8 @@ constructor(props){
 
       <div>
       <Header/>
-       
-          <BestBooks books={this.state.bookArr} onbooksChange={this.onChange}/>
+       {/*  */}
+          <BestBooks books={this.state.bookArr} onbooksChange={this.onChange} />
          
          
 

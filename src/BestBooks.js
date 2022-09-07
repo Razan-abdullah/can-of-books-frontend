@@ -23,8 +23,9 @@ class BestBooks extends React.Component {
    deletebook = (id) => {
     axios
     .delete(`https://book-system1.herokuapp.com/deletebook/${id}`) //http://localhost:3010/deleteCat?id=${id}
+    // .delete(`http://localhost:3100/deletebook/${id}`)
     .then(result =>{
-      this.props.onbooksChange(result)
+      this.props.onbooksChange(result.data)
       // this.props.books= result.data
       })
     
@@ -73,6 +74,8 @@ class BestBooks extends React.Component {
     const id = this.state.currentbook._id;
 axios 
 .put(`https://book-system1.herokuapp.com/update/${id}`,obj)
+// .put(`http://localhost:3100/update/${id}`,obj)
+
 .then(result=>{
 
   this.props.onbooksChange(result)
@@ -81,7 +84,7 @@ axios
   console.log(err);
 })
   }
-
+////////////////////////////////////////////////////////////////// add after sumbit in form
   addBook=(event)=>{
 event.preventDefault();
 let obj={
@@ -94,6 +97,8 @@ let obj={
 
 axios
     .post(`https://book-system1.herokuapp.com/ad123`, obj)
+    // .post(`http://localhost:3100/addbook`, obj)
+
     .then(result =>{
       
         this.props.onbooksChange(result.data)
@@ -103,7 +108,7 @@ axios
       console.log(err);
     })
   }
-
+//////////////////////////////////////render carsouels
   render() {
     return (
       <>
