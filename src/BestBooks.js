@@ -96,7 +96,7 @@ let obj={
 }
 
 axios
-    .post(`https://book-system1.herokuapp.com/ad123`, obj)
+    .post(`https://book-system1.herokuapp.com/addbook`, obj)
     // .post(`http://localhost:3100/addbook`, obj)
 
     .then(result =>{
