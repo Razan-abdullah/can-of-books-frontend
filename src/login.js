@@ -1,13 +1,10 @@
-import React from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
-import Button from 'react-bootstrap/Button';
+import { useAuth0 } from "@auth0/auth0-react";
+import React from "react";
 
-function LoginButton() {
-  const {isAuthenticated, loginWithRedirect,} = useAuth0();
+const LoginButton = () => {
+  const { loginWithRedirect } = useAuth0();
 
-  return !isAuthenticated && (
-    <Button variant="light" onClick={loginWithRedirect}>Log in</Button>
-  );
-}
+  return <button style={{color:"red"}} onClick={() => loginWithRedirect()}>Log In</button>;
+};
 
 export default LoginButton;

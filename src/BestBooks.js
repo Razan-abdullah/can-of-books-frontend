@@ -192,4 +192,4 @@ axios
   }
 }
 
-export default BestBooks;
+export default withAuth0(BestBooks);
