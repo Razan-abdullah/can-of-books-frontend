@@ -3,38 +3,40 @@ import axios from 'axios';
 import BestBooks from './BestBooks';
 import Footer from './Footer.js';
 import Header from './Header.js';
+import Profile from './profile.js';
 import { withAuth0 } from '@auth0/auth0-react';
-
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 class App extends React.Component {
-// constructor(props){
-//   super(props);
-//   this.state = {
-//     bookArr : []
-//   }
-// }
-
-//   componentDidMount = () => {
-//     axios
-//     .get(`https://book-system1.herokuapp.com/getbooks`)
-//     // .get(`http://localhost:3100/getbooks`)
 
   render(){
+
+    const { isAuthenticated } = this.props.auth0;
+
     return(
-      const { isAuthenticated } = this.props.auth0;
-
-
-      <div>
-      <Header/>
-       
-          <BestBooks   />
-         
-         
-
-        <Footer />
      
-    </div>
-    )
+<>
+        <Router>
+          <Header />
+          <Routes>
+            <Route 
+              exact path="/"
+              element={isAuthenticated ?   <BestBooks /> :"Welcome to our website you can log in to continue browseing " }
+            >
+            </Route>
+            <Route 
+              exact path="/profile"
+              element={isAuthenticated && <Profile />}
+            >
+            </Route>
+          </Routes>
+          <Footer />
+        </Router>
+      </>)
   }
 }
 
-export default App;
+export default withAuth0(App);
