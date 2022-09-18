@@ -1,30 +1,29 @@
 import React from 'react';
-import axios from 'axios';
+import Header from './Header';
+import Footer from './Footer';
 import BestBooks from './BestBooks';
-import Footer from './Footer.js';
-import Header from './Header.js';
-import Profile from './profile.js';
-import { withAuth0 } from '@auth0/auth0-react';
+import Profile from './profile';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
+import { withAuth0 } from '@auth0/auth0-react';
+
+
 class App extends React.Component {
 
-  render(){
-
+  render() {
     const { isAuthenticated } = this.props.auth0;
-
-    return(
-     
-<>
+    return (
+      <>
         <Router>
           <Header />
           <Routes>
             <Route 
               exact path="/"
-              element={isAuthenticated ?   <BestBooks /> :"Welcome to our website you can log in to continue browseing " }
+              element={isAuthenticated ?   <BestBooks /> :"Welcom: sign in too see the all books  "              }
             >
             </Route>
             <Route 
@@ -35,7 +34,8 @@ class App extends React.Component {
           </Routes>
           <Footer />
         </Router>
-      </>)
+      </>
+    )
   }
 }
 
